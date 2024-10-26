@@ -5,7 +5,7 @@ import Main from "./layout/Main/Main";
 import Header from "./layout/Header/Header";
 import Footer from "./layout/Footer/Footer";
 import { theme } from "./theme/theme";
-import ItmpRoutes from "./navigation/ItmpRoutes";
+import SzegedkeritesRoutes from "./navigation/SzegedkeritesRoutes";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <ItmpRoutes />
+          <SzegedkeritesRoutes />
           <Header />
           <Main />
           <Footer />

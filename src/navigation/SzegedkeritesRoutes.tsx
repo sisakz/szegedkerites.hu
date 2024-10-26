@@ -3,7 +3,7 @@ import Home from "../pages/Home/Home";
 import Main from "@/layout/Main/Main";
 import Kapcsolat from "@/pages/Kapcsolat";
 
-const ItmpRoutes = () => (
+const SzegedkeritesRoutes = () => (
   <Routes>
     <Route path="/" element={<Main />}>
       <Route index element={<Home />} />
@@ -12,4 +12,4 @@ const ItmpRoutes = () => (
   </Routes>
 );
 
-export default ItmpRoutes;
+export default SzegedkeritesRoutes;
