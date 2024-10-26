@@ -32,10 +32,11 @@ export const theme = createTheme({
     success: { main: "#f68e54" },
     // add custom colors
     dark: { main: "#313a40" },
-    light: { main: "##ebebeb" },
+    light: { main: "#ebebeb" },
   },
   typography: {
     fontFamily: [
+      "Poppins",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',
@@ -48,7 +49,7 @@ export const theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(","),
     h1: {
-      fontSize: "4rem",
+      fontSize: "2.5rem",
       fontWeight: 600,
       lineHeight: 1.2,
       "@media (max-width:600px)": {
@@ -56,7 +57,12 @@ export const theme = createTheme({
       },
     },
     h2: {
-      fontSize: "3rem",
+      fontSize: "2.3rem",
+      fontWeight: 600,
+      lineHeight: 1.2,
+    },
+    h3: {
+      fontSize: "1.5rem",
       fontWeight: 600,
       lineHeight: 1.2,
     },
@@ -66,8 +72,8 @@ export const theme = createTheme({
       lineHeight: 1.5,
     },
     body2: {
-      fontSize: "1.1rem",
-      fontWeight: 400,
+      fontSize: "1rem",
+      fontWeight: 300,
       lineHeight: 1.5,
     },
   },
