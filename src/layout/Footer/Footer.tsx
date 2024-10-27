@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <Box
         sx={{
-          backgroundColor: "info.main",
+          backgroundColor: "dark.light",
           color: "primary.contrastText",
         }}
       >
@@ -14,6 +14,7 @@ const Footer = () => {
             alignItems={"center"}
             justifyContent={"center"}
             sx={{ minHeight: "100px" }}
+            mt={-4}
           >
             <Box>© 2024 Szabókert Kft.</Box>
           </Stack>

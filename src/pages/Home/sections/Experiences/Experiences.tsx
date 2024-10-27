@@ -2,10 +2,11 @@ import CustomButton from "@/components/CustomButton";
 import Section from "@/components/Section";
 import SectionTitle from "@/components/SectionTitle";
 import { Box, Stack, Typography } from "@mui/material";
+import portre from "@/assets/images/szabo_istvan_unokaoccse.webp";
 
 const Experiences = () => {
   return (
-    <Section background="light">
+    <Section background="light" id="rolunk">
       <Stack
         sx={{
           display: "grid",
@@ -43,23 +44,24 @@ const Experiences = () => {
             justifyContent="space-between"
             sx={{ width: "100%", mt: 8 }}
           >
-            <CustomButton>Ajánlatot kérek</CustomButton>
+            <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
           </Stack>
         </Stack>
         <Stack spacing={2} gap={2} alignItems="center">
           <Box
             sx={{
-              width: "80%",
+              width: "400px",
               borderRadius: "500px",
-              backgroundColor: "primary.main",
+              // backgroundColor: "secondary.main",
               aspectRatio: "1/1",
               overflow: "hidden",
+              backgroundImage: `url(${portre})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
-          >
-            <img src="" alt="" />
-          </Box>
+          />
           <Typography variant="body2">
-            Szabó István, Ügyvezető Igazgató
+            Szabó István, ügyvezető igazgató unokaöccse
           </Typography>
         </Stack>
       </Stack>

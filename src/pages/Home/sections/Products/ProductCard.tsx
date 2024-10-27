@@ -1,4 +1,6 @@
 import { Stack, Typography } from "@mui/material";
+import fence2d from "@/assets/images/fence2d.webp";
+import fence3d from "@/assets/images/fence3d.webp";
 
 interface ProductCardProps {
   name: string;
@@ -26,7 +28,7 @@ const ProductTypeCard = ({ name, image, children }: ProductCardProps) => {
       }}
     >
       <img
-        src={`/src/assets/images/${image}.webp`}
+        src={image === "fence2d" ? fence2d : fence3d}
         alt="Warranty"
         style={{ width: "100%" }}
       />

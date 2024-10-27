@@ -14,7 +14,6 @@ const Section = ({
 }: SectionProps) => {
   const backgroundColor = `${background}.main`;
   const color = background === "light" ? "black" : "primary.contrastText";
-  console.log({ id }, { color }, { backgroundColor }, { backgroundImage });
   return (
     <Box
       component="section"

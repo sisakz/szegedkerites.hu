@@ -1,15 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Main from "@/layout/Main/Main";
-import Kapcsolat from "@/pages/Kapcsolat";
+import ContactUs from "@/pages/ContactUs";
+import ScrollToAnchor from "./ScrollToAnchor";
 
 const SzegedkeritesRoutes = () => (
-  <Routes>
-    <Route path="/" element={<Main />}>
-      <Route index element={<Home />} />
-      <Route path="kapcsolat" element={<Kapcsolat />} />
-    </Route>
-  </Routes>
+  <>
+    <ScrollToAnchor />
+    <Routes>
+      <Route path="/" element={<Main />}>
+        <Route index element={<Home />} />
+        <Route path="kapcsolat" element={<ContactUs />} />
+      </Route>
+    </Routes>
+  </>
 );
 
 export default SzegedkeritesRoutes;

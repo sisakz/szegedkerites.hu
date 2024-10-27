@@ -1,7 +1,8 @@
 export const menuItems = [
-  { name: "Rólunk", slug: "tanar-vagyok" },
-  { name: "Termékeink", slug: "cegeknek" },
-  { name: "Munkáink", slug: "munkaink" },
-  { name: "Referenciák", slug: "referenciak" },
+  // { name: "SzegedKerítés", slug: "#szegedkerites" },
+  { name: "Termékeink", slug: "/#termekeink" },
+  { name: "Rólunk", slug: "/#rolunk" },
+  { name: "Referenciák", slug: "/#referenciak" },
+  { name: "Kapcsolat", slug: "kapcsolat" },
   // { name: "Ajánlatot kérek", slug: "ajanlatkeres" },
 ];

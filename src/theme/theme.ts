@@ -31,7 +31,11 @@ export const theme = createTheme({
     info: { main: "#46c2ce" },
     success: { main: "#f68e54" },
     // add custom colors
-    dark: { main: "#313a40" },
+    dark: {
+      main: "#353C42",
+      light: "#5A6268",
+      dark: "#1C1F22",
+    },
     light: { main: "#ebebeb" },
   },
   typography: {
@@ -67,7 +71,7 @@ export const theme = createTheme({
       lineHeight: 1.2,
     },
     body1: {
-      fontSize: "1.5rem",
+      fontSize: "1rem",
       fontWeight: 400,
       lineHeight: 1.5,
     },
@@ -77,4 +81,20 @@ export const theme = createTheme({
       lineHeight: 1.5,
     },
   },
+  // components: {
+  //   MuiInputLabel: {
+  //     defaultProps: {
+  //       sx: {
+  //         fontSize: "14px",
+  //       },
+  //     },
+  //   },
+  //   MuiOutlinedInput: {
+  //     defaultProps: {
+  //       sx: {
+  //         fontSize: "12px",
+  //       },
+  //     },
+  //   },
+  // },
 });

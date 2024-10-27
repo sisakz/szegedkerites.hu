@@ -1,11 +1,13 @@
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface CustomButtonProps {
   children: React.ReactNode;
   outlined?: boolean;
+  to?: string;
 }
-const CustomButton = ({ children, outlined }: CustomButtonProps) => {
-  return (
+const CustomButton = ({ children, outlined, to }: CustomButtonProps) => {
+  const CustomButton_ = (
     <Button
       variant={outlined ? "outlined" : "contained"}
       sx={{
@@ -22,5 +24,13 @@ const CustomButton = ({ children, outlined }: CustomButtonProps) => {
       {children}
     </Button>
   );
+
+  return (
+    <>
+      {to && <Link to={to}>{CustomButton_}</Link>}
+      {!to && <>{CustomButton_}</>}
+    </>
+  );
 };
+
 export default CustomButton;

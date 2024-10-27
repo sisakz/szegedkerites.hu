@@ -19,7 +19,7 @@ const Hero = () => {
             flexDirection: { xs: "column", md: "row" },
           }}
         >
-          <CustomButton>Ajánlatot kérek</CustomButton>
+          <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
           <CustomButton outlined>Bővebben</CustomButton>
         </Stack>
       </HeroContainer>
