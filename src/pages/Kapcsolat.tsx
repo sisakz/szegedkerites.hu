@@ -6,6 +6,7 @@ const Kapcsolat = () => {
   const cards = [1, 2, 3, 4].map(
     (index) => `url(/src/assets/images/cards/card-${index}.png)`
   );
+  const cardWidth = 340;
   console.log({ cards });
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   console.log({ currentCardIndex });
@@ -19,17 +20,19 @@ const Kapcsolat = () => {
     cards[nextCardIndex],
   ];
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
-  const [position, setPosition] = useState(-340);
+  const [position, setPosition] = useState(-cardWidth);
   const [transition, setTransition] = useState("left 0.3s");
   const baseTransition = "left 0.3s ease-in-out";
 
   const changeCard = (direction: "next" | "previous") => () => {
     setButtonsDisabled(true);
     setTransition(baseTransition);
-    setPosition(direction === "next" ? position - 340 : position + 340);
+    setPosition(
+      direction === "next" ? position - cardWidth : position + cardWidth
+    );
     setTimeout(() => {
       setTransition("");
-      setPosition(-340);
+      setPosition(-cardWidth);
       setCurrentCardIndex(direction === "next" ? nextCardIndex : prevCardIndex);
       setButtonsDisabled(false);
     }, 300);
@@ -54,13 +57,13 @@ const Kapcsolat = () => {
           {"<"}
         </button>
         <Stack
-          width={340}
+          width={cardWidth}
           height={480}
           flexDirection="row"
           sx={{ position: "relative", overflow: "hidden" }}
         >
           <Stack
-            width={3 * 340}
+            width={3 * cardWidth}
             height={480}
             flexDirection="row"
             sx={{
@@ -80,7 +83,7 @@ const Kapcsolat = () => {
                   backgroundPosition: "center",
                   borderRadius: 2,
                   boxShadow: 1,
-                  width: 340,
+                  width: cardWidth,
                   height: 480,
                   p: 2,
                 }}
