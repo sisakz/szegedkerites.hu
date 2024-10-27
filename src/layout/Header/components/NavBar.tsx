@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   Container,
   Toolbar,
   useMediaQuery,
@@ -12,11 +11,11 @@ import RegularMenu from "./RegularMenu";
 import Logo from "./Logo";
 import NavBarBlock from "./NavBarBlock";
 import { menuItems } from "@/navigation/menuItems";
+import CustomButton from "@/components/CustomButton";
 
 const NavBar = () => {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
-  console.log({ isXs });
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "grey.200" }}>
       <Container>
@@ -41,17 +40,7 @@ const NavBar = () => {
               </NavBarBlock>
               <NavBarBlock align="right">
                 <RegularMenu menuItems={menuItems} />
-                <Button
-                  sx={{
-                    color: "white",
-                    backgroundColor: "primary.main",
-                    padding: "15px",
-                    margin: "10px",
-                    display: { xs: "none", md: "block" },
-                  }}
-                >
-                  Ajánlatot kérek
-                </Button>
+                <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
               </NavBarBlock>
             </>
           )}

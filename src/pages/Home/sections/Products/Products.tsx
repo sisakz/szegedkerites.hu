@@ -5,7 +5,7 @@ import ProductTypeCard from "./ProductCard";
 
 const Products = () => {
   return (
-    <Section id="products" background="dark">
+    <Section id="termekeink" background="dark">
       <SectionTitle align="center">Termékeink</SectionTitle>
       <Stack
         sx={{
@@ -30,11 +30,11 @@ const Products = () => {
             megjelenését.
           </Typography>
         </Stack>
-        <ProductTypeCard name="2D kerítések" image="2d-kerites">
+        <ProductTypeCard name="2D kerítések" image="fence2d">
           A 2D kerítések egyszerű és elegáns megoldást nyújtanak kisebb
           területek, lakóövezetek és kertek számára.
         </ProductTypeCard>
-        <ProductTypeCard name="3D kerítések" image="3d-kerites">
+        <ProductTypeCard name="3D kerítések" image="fence3d">
           A hajlított kialakítású 3D kerítések ideálisak nagyobb biztonságot
           igénylő ipari parkok, sportlétesítmények és közintézmények
           körbekerítésére.

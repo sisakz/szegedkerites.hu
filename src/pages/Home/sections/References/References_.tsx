@@ -2,11 +2,11 @@ import CustomButton from "@/components/CustomButton";
 import Section from "@/components/Section";
 import SectionTitle from "@/components/SectionTitle";
 import { Stack, Typography } from "@mui/material";
-import ReferenceCard from "./ReferenceCard";
+import ReferenceSlider from "./ReferenceSlider";
 
 const References = () => {
   return (
-    <Section background="light">
+    <Section background="light" id="referenciak">
       <Stack
         sx={{
           display: "grid",
@@ -17,7 +17,7 @@ const References = () => {
         gap={2}
       >
         <Stack spacing={2} gap={2} sx={{ height: "100%" }}>
-          <SectionTitle color="primary">Munkáink</SectionTitle>
+          <SectionTitle color="primary">Referencia munkáink</SectionTitle>
           <Typography variant="body2">
             Munkáink között olyan sikeres projektek szerepelnek, mint a Szegedi
             Lézerközpont, a szegedi és makói Continental és Contitech gyárak,
@@ -32,16 +32,7 @@ const References = () => {
             <CustomButton>Ajánlatot kérek</CustomButton>
           </Stack>
         </Stack>
-        <Stack spacing={2} gap={2} alignItems="center" flexDirection="row">
-          <ReferenceCard name="Makói Continental" image="referencia-1">
-            a
-          </ReferenceCard>
-          <ReferenceCard name="3D kerítések" image="referencia-1" details>
-            A hajlított kialakítású 3D kerítések ideálisak nagyobb biztonságot
-            igénylő ipari parkok, sportlétesítmények és közintézmények
-            körbekerítésére.
-          </ReferenceCard>
-        </Stack>
+        <ReferenceSlider />
       </Stack>
     </Section>
   );

@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import heroImage from "@/assets/images/hero-image.webp";
 
 interface HeroContainerProps {

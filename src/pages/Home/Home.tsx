@@ -4,7 +4,7 @@ import Benefits from "./sections/Benefits/Benefits";
 import Products from "./sections/Products/Products";
 import Experiences from "./sections/Experiences/Experiences";
 import Offer from "./sections/Offer/Offer";
-import References from "./sections/OurWorks/References";
+import References from "./sections/References/References_";
 
 const Home = () => {
   return (

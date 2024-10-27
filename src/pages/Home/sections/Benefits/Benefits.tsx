@@ -40,7 +40,7 @@ const Benefits = () => {
           justifyContent="center"
           sx={{ width: "100%", mt: 8 }}
         >
-          <CustomButton>Ajánlatot kérek</CustomButton>
+          <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
         </Stack>
       </Box>
     </Section>

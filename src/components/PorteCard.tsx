@@ -16,7 +16,6 @@ const PortreCard = ({
   company,
   isMirrored,
 }: PortreCardProps) => {
-  console.log(company);
   return (
     <Box
       sx={{
