@@ -30,6 +30,7 @@ const Section = ({
         pb: 9,
         color: `${color}`,
         minHeight: "500px",
+        px: 1,
       }}
     >
       <Container sx={{}}>{children}</Container>

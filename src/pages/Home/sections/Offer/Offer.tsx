@@ -22,10 +22,9 @@ const Offer = () => {
           gap: 2,
           width: "100%",
           maxWidth: 400,
-          fontSize: "0.5rem !important",
           "& .MuiTextField-root": {
             m: 1,
-            width: "120ch",
+            width: "100%",
             backgroundColor: "white",
           },
         }}
@@ -47,7 +46,7 @@ const Offer = () => {
         <FormControlLabel
           control={<Checkbox required sx={{ color: "white" }} />}
           label="Elfogadom az adatvédelmi irányelveket"
-          sx={{ color: "white", fontSize: "0.5rem !important" }}
+          sx={{ color: "white" }}
         />
         <CustomButton outlined>Ajánlatot kérek</CustomButton>
       </Box>
@@ -79,7 +78,6 @@ const CustomTextField = ({
       variant="filled"
       sx={{
         borderRadius: "5px",
-        fontSize: "0.5rem !important",
       }}
     />
   );

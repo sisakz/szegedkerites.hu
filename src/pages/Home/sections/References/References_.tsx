@@ -3,8 +3,10 @@ import Section from "@/components/Section";
 import SectionTitle from "@/components/SectionTitle";
 import { Stack, Typography } from "@mui/material";
 import ReferenceSlider from "./ReferenceSlider";
+import { useMobile } from "@/hooks/useMobile";
 
 const References = () => {
+  const isMobile = useMobile();
   return (
     <Section background="light" id="referenciak">
       <Stack
@@ -29,7 +31,9 @@ const References = () => {
             justifyContent="space-between"
             sx={{ width: "100%", mt: 8 }}
           >
-            <CustomButton>Ajánlatot kérek</CustomButton>
+            {!isMobile && (
+              <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
+            )}
           </Stack>
         </Stack>
         <ReferenceSlider />
