@@ -1,24 +1,21 @@
 import { Stack, Typography } from "@mui/material";
 import DetailLine from "./DetailLine";
-import brand from "@/assets/images/icons/brand.svg";
-import fence from "@/assets/images/icons/fence.svg";
-import length from "@/assets/images/icons/length.svg";
-import year from "@/assets/images/icons/year.svg";
+import brandIcon from "@/assets/images/icons/brand.svg";
+import fenceIcon from "@/assets/images/icons/fence.svg";
+import lengthIcon from "@/assets/images/icons/length.svg";
+import yearIcon from "@/assets/images/icons/year.svg";
 import { Reference } from "./ReferenceCard";
 
 interface SingleReferenceCardProps {
-  name: string;
-  image: string;
   details?: boolean;
-  reference?: Reference;
+  reference: Reference;
 }
 
 const SingleReferenceCard = ({
-  name,
-  image,
   reference,
   details,
 }: SingleReferenceCardProps) => {
+  const { name, image, brand, type, year, length } = reference;
   return (
     <Stack
       sx={{
@@ -28,7 +25,7 @@ const SingleReferenceCard = ({
         alignItems: "left",
         height: "480px",
         borderRadius: "30px",
-        width: "340px",
+        width: { xs: "270px", md: "340px" },
         backgroundColor: "primary.contrastText",
         m: "0 !important",
         color: "primary.main",
@@ -65,19 +62,15 @@ const SingleReferenceCard = ({
           sx={{ p: 4, height: "100%" }}
         >
           <Typography variant="h3" color="primary.contrastText">
-            {reference.name}
+            {name}
           </Typography>
+          <DetailLine icon={fenceIcon} label="Kerítés típusa" value={type} />
+          <DetailLine icon={brandIcon} label="Márka" value={brand} />
+          <DetailLine icon={lengthIcon} label="Hossz" value={length} />
           <DetailLine
-            icon={fence}
-            label="Kerítés típusa"
-            value={reference.type}
-          />
-          <DetailLine icon={brand} label="Márka" value={reference.type} />
-          <DetailLine icon={length} label="Hossz" value={reference.length} />
-          <DetailLine
-            icon={year}
+            icon={yearIcon}
             label="Telepítés éve"
-            value={reference.year.toString()}
+            value={year.toString()}
           />
         </Stack>
       )}

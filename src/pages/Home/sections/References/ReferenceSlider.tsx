@@ -4,12 +4,25 @@ import ReferenceCard from "./ReferenceCard";
 import { references } from "./references";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import SingleReferenceCard from "./SingleReferenceCard";
+import { useMobile } from "@/hooks/useMobile";
 
 const ReferenceSlider = () => {
-  const cards = references.map((reference, index) => (
-    <ReferenceCard reference={reference} index={index} />
+  const isMobile = useMobile();
+  const cardWidth = isMobile ? 270 : 720;
+  const cardsDesktop = references.map((reference, index) => (
+    <ReferenceCard
+      reference={reference}
+      index={index}
+      cardWidth={cardWidth - 20}
+    />
   ));
-  const cardWidth = 720;
+  const cardsMobile: JSX.Element[] = [];
+  references.forEach((reference) => {
+    cardsMobile.push(<SingleReferenceCard reference={reference} />);
+    cardsMobile.push(<SingleReferenceCard details reference={reference} />);
+  });
+  const cards = isMobile ? cardsMobile : cardsDesktop;
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const nextCardIndex =
     currentCardIndex < cards.length - 1 ? currentCardIndex + 1 : 0;

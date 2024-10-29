@@ -50,7 +50,7 @@ const Experiences = () => {
         <Stack spacing={2} gap={2} alignItems="center">
           <Box
             sx={{
-              width: "400px",
+              width: "300px",
               borderRadius: "500px",
               // backgroundColor: "secondary.main",
               aspectRatio: "1/1",

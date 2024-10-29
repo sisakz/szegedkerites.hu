@@ -26,7 +26,9 @@ const Logo = ({ button }: LogoProps) => {
     >
       {button ? (
         <Link to="/">
-          <Button sx={{ height: "35px" }}>{logoImage}</Button>
+          <Button sx={{ height: { xs: "30px", md: "35px" } }}>
+            {logoImage}
+          </Button>
         </Link>
       ) : (
         logoImage
