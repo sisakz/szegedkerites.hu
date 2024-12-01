@@ -9,9 +9,9 @@ import { useBenefitCards, useStaticContents } from "@/hooks/dato";
 import { StructuredText } from "react-datocms";
 
 const Benefits = () => {
-  const { content: benefitSection } = useStaticContents("benefits");
+  const { content: benefitsSection } = useStaticContents("benefits-section");
   const { benefitCards } = useBenefitCards();
-  const { title } = benefitSection;
+  const { title } = benefitsSection;
   console.log(benefitCards);
   return (
     <Section
@@ -36,7 +36,7 @@ const Benefits = () => {
           gap={2}
         >
           {benefitCards.map((benefit, index) => (
-            <BenefitCard key={index} title={benefit.title} icon={benefit.icon}>
+            <BenefitCard key={index} title={benefit.title} icon={benefit.image}>
               <StructuredText data={benefit.content} />
             </BenefitCard>
           ))}

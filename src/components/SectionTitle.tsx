@@ -12,7 +12,7 @@ const SectionTitle = ({ children, color, align }: SectionTitleProps) => {
       variant="h2"
       textAlign={align}
       color={color}
-      sx={{ width: "100%", mt: 8, mb: 8 }}
+      sx={{ width: "100%", mt: 8, mb: 2 }}
     >
       {children}
     </Typography>

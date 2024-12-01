@@ -47,10 +47,18 @@ export const useStaticContents = (name: string) => {
   `);
 
   const staticContents: StaticContentType[] = data?.allStaticContents;
-  const content =
+  console.log({ staticContents });
+  const contentRaw =
     staticContents?.find((content) => content.name === name) || emptyContent;
+  const content = {
+    name: contentRaw.name,
+    title: contentRaw.title,
+    content: contentRaw.content.value as StructuredTextGraphQlResponse,
+    image: contentRaw.image?.url,
+  };
+
   return {
-    content: content,
+    content,
     loading,
     error,
   };
@@ -66,18 +74,11 @@ export const useBenefitCards = () => {
   const { content: benefitCardService } = useStaticContents(
     "benefit-card-service"
   );
-  const benefitCardsRaw = [
+  const benefitCards = [
     benefitCardExperience,
     benefitCardGarantiee,
     benefitCardService,
   ];
-
-  const benefitCards = benefitCardsRaw.map((card) => ({
-    name: card.name,
-    title: card.title,
-    content: card.content.value as StructuredTextGraphQlResponse,
-    icon: card.image.url,
-  }));
 
   return {
     benefitCards,
