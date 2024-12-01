@@ -2,7 +2,7 @@ import CustomButton from "@/components/CustomButton";
 import Section from "@/components/Section";
 import SectionTitle from "@/components/SectionTitle";
 import { Box, Stack, Typography } from "@mui/material";
-import portre from "@/assets/images/szabo_istvan_unokaoccse.webp";
+import portre from "@/assets/images/szabo_istvan_portre_2.webp";
 
 const Experiences = () => {
   return (
@@ -58,11 +58,11 @@ const Experiences = () => {
               backgroundImage: `url(${portre})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              boxShadow:
+                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             }}
           />
-          <Typography variant="body2">
-            Szabó István, ügyvezető igazgató unokaöccse
-          </Typography>
+          <Typography variant="body2">Szabó István, cégvezető</Typography>
         </Stack>
       </Stack>
     </Section>

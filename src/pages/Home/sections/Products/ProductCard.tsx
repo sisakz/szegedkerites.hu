@@ -30,7 +30,7 @@ const ProductTypeCard = ({ name, image, children }: ProductCardProps) => {
       <img
         src={image === "fence2d" ? fence2d : fence3d}
         alt="Warranty"
-        style={{ width: "100%" }}
+        style={{ width: "100%", aspectRatio: "16/7" }}
       />
       <Typography variant="h3" textAlign="left" sx={{ px: 4, pt: 4 }}>
         {name}
