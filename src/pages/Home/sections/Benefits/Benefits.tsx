@@ -3,10 +3,16 @@ import SectionTitle from "@/components/SectionTitle";
 import benefitsBackground from "@/assets/images/benefits-background-1200x800.webp";
 import { Box, Stack } from "@mui/material";
 import BenefitCard from "./BenefitCard";
-import { benefitCards } from "./benefitCards";
+// import { benefitCards } from "./benefitCards";
 import CustomButton from "@/components/CustomButton";
+import { useBenefitCards, useStaticContents } from "@/hooks/dato";
+import { StructuredText } from "react-datocms";
 
 const Benefits = () => {
+  const { content: benefitSection } = useStaticContents("benefits");
+  const { benefitCards } = useBenefitCards();
+  const { title } = benefitSection;
+  console.log(benefitCards);
   return (
     <Section
       id="benefits"
@@ -14,7 +20,7 @@ const Benefits = () => {
       backgroundImage={benefitsBackground}
     >
       <SectionTitle color="primary.main" align="center">
-        Miért pont Szegedkerítés?
+        {title}
       </SectionTitle>
       <Box>
         <Stack
@@ -31,7 +37,7 @@ const Benefits = () => {
         >
           {benefitCards.map((benefit, index) => (
             <BenefitCard key={index} title={benefit.title} icon={benefit.icon}>
-              {benefit.description}
+              <StructuredText data={benefit.content} />
             </BenefitCard>
           ))}
         </Stack>

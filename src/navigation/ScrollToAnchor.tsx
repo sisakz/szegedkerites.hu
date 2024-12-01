@@ -12,9 +12,13 @@ function ScrollToAnchor() {
 
     if (lastHash.current && document.getElementById(lastHash.current)) {
       setTimeout(() => {
-        document
-          .getElementById(lastHash.current)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        const element = document.getElementById(lastHash.current);
+        if (element) {
+          const yOffset = -64;
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
         lastHash.current = "";
       }, 100);
     }

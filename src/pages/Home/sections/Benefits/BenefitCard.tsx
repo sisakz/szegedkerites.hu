@@ -1,7 +1,4 @@
 import { Stack, Typography } from "@mui/material";
-import service from "@/assets/images/icons/service.png";
-import warranty from "@/assets/images/icons/warranty.png";
-import experience from "@/assets/images/icons/experience.png";
 
 interface BenefitCardProps {
   title: string;
@@ -28,16 +25,7 @@ const BenefitCard = ({ title, children, icon }: BenefitCardProps) => {
         gap: 4,
       }}
     >
-      <img
-        src={
-          icon === "experience"
-            ? experience
-            : icon === "warranty"
-            ? warranty
-            : service
-        }
-        alt={icon}
-      />
+      <img src={icon} alt={icon} />
       <Typography variant="h3">{title}</Typography>
       <Typography variant="body2" textAlign="center">
         {children}
