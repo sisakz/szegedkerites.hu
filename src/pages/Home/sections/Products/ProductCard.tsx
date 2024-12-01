@@ -1,6 +1,4 @@
 import { Stack, Typography } from "@mui/material";
-import fence2d from "@/assets/images/fence2d.webp";
-import fence3d from "@/assets/images/fence3d.webp";
 
 interface ProductCardProps {
   name: string;
@@ -27,23 +25,33 @@ const ProductTypeCard = ({ name, image, children }: ProductCardProps) => {
         overflow: "hidden",
       }}
     >
-      <img
-        src={image === "fence2d" ? fence2d : fence3d}
+      <Stack
+        sx={{
+          aspectRatio: "2/1",
+          width: "100%",
+          backgroundImage: {
+            xs: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.2) 100%), url(${image})`,
+            md: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%), url(${image})`,
+          },
+          p: 4,
+          color: "primary.contrastText",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Typography variant="h3">{name}</Typography>{" "}
+      </Stack>
+      {/* <img
+        src={image}
         alt="Warranty"
         style={{ width: "100%", aspectRatio: "16/7" }}
-      />
-      <Typography variant="h3" textAlign="left" sx={{ px: 4, pt: 4 }}>
-        {name}
-      </Typography>
+      /> */}
+
       <Stack
         gap={2}
         justifyContent="space-between"
         sx={{ p: 4, height: "100%" }}
       >
         <Typography variant="body2">{children}</Typography>
-        <Typography variant="body2" sx={{ textDecoration: "underline" }}>
-          Részletek
-        </Typography>
       </Stack>
     </Stack>
   );

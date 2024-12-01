@@ -3,26 +3,23 @@ import SectionTitle from "@/components/SectionTitle";
 import { Stack, Typography } from "@mui/material";
 import ProductTypeCard from "./ProductCard";
 import { useStaticContents } from "@/hooks/dato";
+import { StructuredText } from "react-datocms";
 
 const Products = () => {
-  const { content: productSection } = useStaticContents("products");
-  const { title, content } = productSection;
+  const { content: productsSection } = useStaticContents("products-section");
+  const { title, content } = productsSection;
+  const { content: productCard2dKerites } = useStaticContents(
+    "product-card-2d-kerites"
+  );
+  const { content: productCard3dKerites } = useStaticContents(
+    "product-card-3d-kerites"
+  );
   return (
     <Section id="termekeink" background="dark">
       <SectionTitle align="center">{title}</SectionTitle>
       <Stack>
-        <Typography textAlign="left" variant="body2" sx={{ mt: 2 }}>
-          Kerítésmegoldásaink széles választékban elérhetők, hogy minden igényt
-          kielégítsenek, legyen szó lakossági vagy ipari felhasználásról.
-          Célunk, hogy minőségi és tartós kerítéseket biztosítsunk, amelyek
-          hosszú távon megbízható védelmet nyújtanak. Kínálatunkban különböző
-          típusú kerítések szerepelnek, amelyek ideálisak otthoni, közösségi
-          vagy ipari alkalmazásra.
-        </Typography>
-        <Typography textAlign="left" variant="body2" sx={{ mt: 2 }}>
-          Kerítéseink speciális bevonata ellenáll az időjárási
-          viszontagságoknak, így a kerítés tartósan megőrzi minőségét és
-          megjelenését.
+        <Typography textAlign="left" variant="body2">
+          <StructuredText data={content} />
         </Typography>
       </Stack>
       <Stack
@@ -33,16 +30,32 @@ const Products = () => {
           my: 4,
         }}
       >
-        <ProductTypeCard name="2D kerítések" image="fence2d">
-          A 2D kerítések egyszerű és elegáns megoldást nyújtanak kisebb
-          területek, lakóövezetek és kertek számára.
+        <ProductTypeCard
+          name={productCard2dKerites.title}
+          image={productCard2dKerites.image}
+        >
+          <StructuredText data={productCard2dKerites.content} />
         </ProductTypeCard>
-        <ProductTypeCard name="3D kerítések" image="fence3d">
-          A hajlított kialakítású 3D kerítések ideálisak nagyobb biztonságot
-          igénylő ipari parkok, sportlétesítmények és közintézmények
-          körbekerítésére.
+        <ProductTypeCard
+          name={productCard3dKerites.title}
+          image={productCard3dKerites.image}
+        >
+          <StructuredText data={productCard3dKerites.content} />
         </ProductTypeCard>
       </Stack>
+      <Typography
+        textAlign="center"
+        variant="body2"
+        fontWeight={600}
+        sx={{ mb: 1 }}
+      >
+        További kérdése lenne?
+      </Typography>
+      <Typography textAlign="center" variant="body2">
+        Vegye fel velünk a kapcsolatot vagy látogasson ki telephelyünkre, és
+        tapasztalt kollegáink segítenek önnek kiválasztani a projektjéhez és
+        igényeihez illeszkedő megoldást.
+      </Typography>
     </Section>
   );
 };

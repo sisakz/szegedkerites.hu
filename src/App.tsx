@@ -7,6 +7,7 @@ import Footer from "./layout/Footer/Footer";
 import { theme } from "./theme/theme";
 import SzegedkeritesRoutes from "./navigation/SzegedkeritesRoutes";
 import { BrowserRouter } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (

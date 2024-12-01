@@ -26,6 +26,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.2.7
         version: 2.2.7(react-redux@9.1.2(@types/react@18.3.11)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+      datocms-structured-text-utils:
+        specifier: ^4.0.1
+        version: 4.0.1
       graphql-hooks:
         specifier: ^8.0.1
         version: 8.0.1(react@18.3.1)
