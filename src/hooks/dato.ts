@@ -1,4 +1,5 @@
 import { GraphQLClient, useQuery } from "graphql-hooks";
+import { useMemo } from "react";
 
 import { type StructuredTextGraphQlResponse } from "react-datocms";
 
@@ -15,6 +16,20 @@ export type StaticContentType = {
   title: string;
   subtitle: string;
   content: StructuredTextGraphQlResponse;
+  image: {
+    url: string;
+  };
+};
+
+export type ReferenceCardType = {
+  id: string;
+  name: string;
+  title: string;
+  date: string;
+  brand: {
+    name: string;
+  };
+  fenceType: string;
   image: {
     url: string;
   };
@@ -42,7 +57,6 @@ export const useStaticContents = (name: string) => {
     _status
     _firstPublishedAt
   }
-
   _allStaticContentsMeta {
     count
   }
@@ -50,7 +64,6 @@ export const useStaticContents = (name: string) => {
   `);
 
   const staticContents: StaticContentType[] = data?.allStaticContents;
-  console.log({ staticContents });
   const contentRaw =
     staticContents?.find((content) => content.name === name) || emptyContent;
   const content = {
@@ -63,6 +76,42 @@ export const useStaticContents = (name: string) => {
 
   return {
     content,
+    loading,
+    error,
+  };
+};
+
+export const useReferenceCards = () => {
+  const { loading, error, data } = useQuery(`
+{
+	allReferences {
+    id
+    name
+    title
+    date
+    brand{name}
+    fenceType
+    image {url}
+  }
+}
+  `);
+
+  const referenceCards = useMemo(() => {
+    if (!data) return [];
+    const allReferences: ReferenceCardType[] = data.allReferences || [];
+    return allReferences
+      .filter((referenceCard) => referenceCard.image !== null)
+      .map((referenceCard) => ({
+        name: referenceCard.title,
+        image: referenceCard.image?.url,
+        date: new Date(referenceCard.date).getFullYear().toString(),
+        brand: referenceCard.brand?.name,
+        fenceType: referenceCard.fenceType,
+      }));
+  }, [data]);
+  console.log("rendering");
+  return {
+    referenceCards,
     loading,
     error,
   };
