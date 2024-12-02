@@ -5,18 +5,34 @@ interface CustomButtonProps {
   children: React.ReactNode;
   outlined?: boolean;
   to?: string;
+  backgroundColor?: string;
+  color?:
+    | "primary"
+    | "secondary"
+    | "error"
+    | "warning"
+    | "info"
+    | "success"
+    | "inherit"
+    | "light"
+    | undefined;
 }
-const CustomButton = ({ children, outlined, to }: CustomButtonProps) => {
+const CustomButton = ({
+  children,
+  outlined,
+  to,
+  color = "primary",
+}: CustomButtonProps) => {
   const CustomButton_ = (
     <Button
       variant={outlined ? "outlined" : "contained"}
+      color={color}
       sx={{
-        color: "primary.contrastText",
-        // backgroundColor: "primary.main",
+        // backgroundColor: backgroundColor,
         py: "10px",
         px: "15px",
         margin: "10px",
-        borderColor: outlined ? "primary.contrastText" : "transparent",
+        // borderColor: outlined ? "primary.contrastText" : "transparent",
         maxWidth: "200px",
         minWidth: "150px",
       }}

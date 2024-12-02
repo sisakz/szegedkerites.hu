@@ -12,7 +12,7 @@ import {
 const Offer = () => {
   return (
     <Section background="primary" id="ajanlat">
-      <SectionTitle>Kérjen ajánlatot</SectionTitle>
+      <SectionTitle>Lépjen velünk kapcsolatba!</SectionTitle>
 
       <Box
         component="form"
@@ -48,7 +48,9 @@ const Offer = () => {
           label="Elfogadom az adatvédelmi irányelveket"
           sx={{ color: "white" }}
         />
-        <CustomButton outlined>Ajánlatot kérek</CustomButton>
+        <CustomButton outlined color="light">
+          Ajánlatot kérek
+        </CustomButton>
       </Box>
     </Section>
   );

@@ -11,7 +11,6 @@ import RegularMenu from "./RegularMenu";
 import Logo from "./Logo";
 import NavBarBlock from "./NavBarBlock";
 import { menuItems } from "@/navigation/menuItems";
-import CustomButton from "@/components/CustomButton";
 
 const NavBar = () => {
   const theme = useTheme();
@@ -40,7 +39,7 @@ const NavBar = () => {
               </NavBarBlock>
               <NavBarBlock align="right">
                 <RegularMenu menuItems={menuItems} />
-                <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
+                {/* <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton> */}
               </NavBarBlock>
             </>
           )}

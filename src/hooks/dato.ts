@@ -13,6 +13,7 @@ export type StaticContentType = {
   id: string;
   name: string;
   title: string;
+  subtitle: string;
   content: StructuredTextGraphQlResponse;
   image: {
     url: string;
@@ -23,6 +24,7 @@ const emptyContent: StaticContentType = {
   id: "",
   name: "",
   title: "",
+  subtitle: "",
   content: { value: null },
   image: { url: "" },
 };
@@ -34,6 +36,7 @@ export const useStaticContents = (name: string) => {
     id
     name
     title
+    subtitle
     content {value}
     image {url}
     _status
@@ -53,6 +56,7 @@ export const useStaticContents = (name: string) => {
   const content = {
     name: contentRaw.name,
     title: contentRaw.title,
+    subtitle: contentRaw.subtitle,
     content: contentRaw.content.value as StructuredTextGraphQlResponse,
     image: contentRaw.image?.url,
   };

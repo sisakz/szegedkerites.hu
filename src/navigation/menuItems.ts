@@ -3,6 +3,6 @@ export const menuItems = [
   { name: "Termékeink", slug: "/#termekeink" },
   { name: "Rólunk", slug: "/#rolunk" },
   { name: "Referenciák", slug: "/#referenciak" },
-  { name: "Kapcsolat", slug: "kapcsolat" },
-  // { name: "Ajánlatot kérek", slug: "ajanlatkeres" },
+  { name: "Szolgáltatásaink", slug: "/#szolgaltatasok" },
+  { name: "Kapcsolat", slug: "/#ajanlat" },
 ];

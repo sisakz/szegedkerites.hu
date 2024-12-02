@@ -5,6 +5,8 @@ import Products from "./sections/Products/Products";
 import Experiences from "./sections/Experiences/Experiences";
 import Offer from "./sections/Offer/Offer";
 import References from "./sections/References/References_";
+import LandscapeGardering from "./sections/LandscapeGardering/LandscapeGardering";
+import Services from "./sections/Services/Services";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <Products />
       <Experiences />
       <References />
+      <Services />
+      <LandscapeGardering />
       <Offer />
     </PageContainer>
   );

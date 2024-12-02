@@ -1,22 +1,23 @@
 import { Typography } from "@mui/material";
 
-interface SectionTitleProps {
+interface SectionSubtitleProps {
   children: React.ReactNode;
   color?: string;
   align?: "left" | "center" | "right";
   mt?: number;
 }
 
-const SectionTitle = ({
+const SectionSubtitle = ({
   children,
   color,
   align,
   mt = 8,
-}: SectionTitleProps) => {
+}: SectionSubtitleProps) => {
   return (
     <Typography
-      variant="h2"
+      variant="h6"
       textAlign={align}
+      textTransform={"uppercase"}
       color={color}
       sx={{ width: "100%", mt, mb: 2 }}
     >
@@ -24,4 +25,4 @@ const SectionTitle = ({
     </Typography>
   );
 };
-export default SectionTitle;
+export default SectionSubtitle;
