@@ -26,13 +26,11 @@ const CustomButton = ({
   const CustomButton_ = (
     <Button
       variant={outlined ? "outlined" : "contained"}
-      color={color}
+      color={color as any} // Ignore TypeScript error for color
       sx={{
-        // backgroundColor: backgroundColor,
         py: "10px",
         px: "15px",
         margin: "10px",
-        // borderColor: outlined ? "primary.contrastText" : "transparent",
         maxWidth: "200px",
         minWidth: "150px",
       }}
