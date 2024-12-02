@@ -1,6 +1,16 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
+type ColorType =
+  | "primary"
+  | "secondary"
+  | "error"
+  | "warning"
+  | "info"
+  | "success"
+  | "inherit"
+  | undefined;
+
 interface CustomButtonProps {
   children: React.ReactNode;
   outlined?: boolean;
@@ -26,7 +36,7 @@ const CustomButton = ({
   const CustomButton_ = (
     <Button
       variant={outlined ? "outlined" : "contained"}
-      color={color as any} // Ignore TypeScript error for color
+      color={color as ColorType}
       sx={{
         py: "10px",
         px: "15px",

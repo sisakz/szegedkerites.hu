@@ -4,9 +4,11 @@ import SectionTitle from "@/components/SectionTitle";
 import { Stack, Typography } from "@mui/material";
 import ReferenceSlider from "./ReferenceSlider";
 import { useMobile } from "@/hooks/useMobile";
+import { useReferenceCards } from "@/hooks/dato";
 
 const References = () => {
   const isMobile = useMobile();
+  const { referenceCards } = useReferenceCards();
   return (
     <Section background="light" id="referenciak">
       <Stack
@@ -36,7 +38,7 @@ const References = () => {
             )}
           </Stack>
         </Stack>
-        <ReferenceSlider />
+        <ReferenceSlider referenceCards={referenceCards} />
       </Stack>
     </Section>
   );

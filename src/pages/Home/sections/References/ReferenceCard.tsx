@@ -1,18 +1,15 @@
 import { Stack } from "@mui/material";
 import SingleReferenceCard from "./SingleReferenceCard";
 
-export type Reference = {
+export type ReferenceCardType = {
   name: string;
-  image: string;
+  date: number | string;
   brand: string;
-  length: string;
-  details: string;
-  type: string;
-  year: number;
+  fenceType: string;
+  image: string;
 };
-
 interface ReferenceCardProps {
-  reference: Reference;
+  reference: ReferenceCardType;
   index: number;
   cardWidth: number;
 }

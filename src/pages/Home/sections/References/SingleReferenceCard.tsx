@@ -2,20 +2,19 @@ import { Stack, Typography } from "@mui/material";
 import DetailLine from "./DetailLine";
 import brandIcon from "@/assets/images/icons/brand.svg";
 import fenceIcon from "@/assets/images/icons/fence.svg";
-import lengthIcon from "@/assets/images/icons/length.svg";
 import yearIcon from "@/assets/images/icons/year.svg";
-import { Reference } from "./ReferenceCard";
+import { ReferenceCardType } from "./ReferenceCard";
 
 interface SingleReferenceCardProps {
   details?: boolean;
-  reference: Reference;
+  reference: ReferenceCardType;
 }
 
 const SingleReferenceCard = ({
   reference,
   details,
 }: SingleReferenceCardProps) => {
-  const { name, image, brand, type, year, length } = reference;
+  const { name, image, brand, fenceType, date } = reference;
   return (
     <Stack
       sx={{
@@ -32,8 +31,8 @@ const SingleReferenceCard = ({
 
         overflow: "hidden",
         background: details
-          ? `linear-gradient(#353C42CC, #353C42CC), url(/${image}.webp)`
-          : `url(/${image}.webp)`,
+          ? `linear-gradient(#353C42CC, #353C42CC), url(${image})`
+          : `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -64,13 +63,17 @@ const SingleReferenceCard = ({
           <Typography variant="h3" color="primary.contrastText">
             {name}
           </Typography>
-          <DetailLine icon={fenceIcon} label="Kerítés típusa" value={type} />
+          <DetailLine
+            icon={fenceIcon}
+            label="Kerítés típusa"
+            value={fenceType}
+          />
           <DetailLine icon={brandIcon} label="Márka" value={brand} />
-          <DetailLine icon={lengthIcon} label="Hossz" value={length} />
+          {/* <DetailLine icon={lengthIcon} label="Hossz" value={length} /> */}
           <DetailLine
             icon={yearIcon}
             label="Telepítés éve"
-            value={year.toString()}
+            value={date.toString()}
           />
         </Stack>
       )}

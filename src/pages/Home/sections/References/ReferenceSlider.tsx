@@ -1,24 +1,31 @@
 import { IconButton, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
-import ReferenceCard from "./ReferenceCard";
-import { references } from "./references";
+import ReferenceCard, { ReferenceCardType } from "./ReferenceCard";
+// import { references } from "./references";
+// import { references as referenceCards_ } from "./references";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import SingleReferenceCard from "./SingleReferenceCard";
 import { useMobile } from "@/hooks/useMobile";
 
-const ReferenceSlider = () => {
+interface ReferenceSliderProps {
+  referenceCards: ReferenceCardType[];
+}
+const ReferenceSlider = ({ referenceCards }: ReferenceSliderProps) => {
+  // console.log({ referenceCards });
   const isMobile = useMobile();
   const cardWidth = isMobile ? 270 : 720;
-  const cardsDesktop = references.map((reference, index) => (
+  const cardsDesktop = referenceCards.map((reference, index) => (
     <ReferenceCard
       reference={reference}
       index={index}
       cardWidth={cardWidth - 20}
     />
   ));
+  const length = cardsDesktop.length;
+  console.log({ length });
   const cardsMobile: JSX.Element[] = [];
-  references.forEach((reference) => {
+  referenceCards.forEach((reference) => {
     cardsMobile.push(<SingleReferenceCard reference={reference} />);
     cardsMobile.push(<SingleReferenceCard details reference={reference} />);
   });
@@ -28,6 +35,8 @@ const ReferenceSlider = () => {
     currentCardIndex < cards.length - 1 ? currentCardIndex + 1 : 0;
   const prevCardIndex =
     currentCardIndex > 0 ? currentCardIndex - 1 : cards.length - 1;
+  console.log("kivül", { currentCardIndex, nextCardIndex, prevCardIndex });
+
   const currentCards = [
     cards[prevCardIndex],
     cards[currentCardIndex],
@@ -38,33 +47,40 @@ const ReferenceSlider = () => {
   const [transition, setTransition] = useState("left 0.3s");
   const baseTransition = "left 0.3s ease-in-out";
 
-  const changeCard = (direction: "next" | "previous") => () => {
+  const changeCard = (direction: "next" | "previous", length: number) => {
     setButtonsDisabled(true);
     setTransition(baseTransition);
     setPosition(
       direction === "next" ? position - cardWidth : position + cardWidth
     );
+    console.log("belul", { currentCardIndex, nextCardIndex, prevCardIndex });
     setTimeout(() => {
       setTransition("");
       setPosition(-cardWidth);
-      setCurrentCardIndex(direction === "next" ? nextCardIndex : prevCardIndex);
+      setCurrentCardIndex((prev) => {
+        console.log({ prev }, { length });
+        const nextCardIndex = prev < length - 1 ? prev + 1 : 0;
+        const prevCardIndex = prev > 0 ? prev - 1 : length - 1;
+        const newIndex = direction === "next" ? nextCardIndex : prevCardIndex;
+        return newIndex;
+      });
       setButtonsDisabled(false);
     }, 300);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      changeCard("next")();
+      changeCard("next", length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [currentCardIndex]);
+  }, [length]);
 
   return (
     <Stack justifyContent="center" alignItems="center" flexDirection="row">
       <IconButton
         aria-label="left"
         disabled={buttonsDisabled}
-        onClick={changeCard("previous")}
+        onClick={() => changeCard("previous", length)}
         color="primary"
       >
         <ArrowLeftIcon />
@@ -95,7 +111,7 @@ const ReferenceSlider = () => {
       <IconButton
         aria-label="left"
         disabled={buttonsDisabled}
-        onClick={changeCard("next")}
+        onClick={() => changeCard("next", length)}
         color="primary"
       >
         <ArrowRightIcon />
