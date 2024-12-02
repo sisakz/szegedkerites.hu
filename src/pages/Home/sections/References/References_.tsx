@@ -4,11 +4,15 @@ import SectionTitle from "@/components/SectionTitle";
 import { Stack, Typography } from "@mui/material";
 import ReferenceSlider from "./ReferenceSlider";
 import { useMobile } from "@/hooks/useMobile";
-import { useReferenceCards } from "@/hooks/dato";
+import { useReferenceCards, useStaticContents } from "@/hooks/dato";
+import { StructuredText } from "react-datocms";
 
 const References = () => {
   const isMobile = useMobile();
   const { referenceCards } = useReferenceCards();
+  const { content: referencesSection } =
+    useStaticContents("references-section");
+  const { title, content } = referencesSection;
   return (
     <Section background="light" id="referenciak">
       <Stack
@@ -21,12 +25,9 @@ const References = () => {
         gap={2}
       >
         <Stack spacing={2} gap={2} sx={{ height: "100%" }}>
-          <SectionTitle color="primary">Referencia munkáink</SectionTitle>
+          <SectionTitle color="primary">{title}</SectionTitle>
           <Typography variant="body2">
-            Munkáink között olyan sikeres projektek szerepelnek, mint a Szegedi
-            Lézerközpont, a szegedi és makói Continental és Contitech gyárak,
-            valamint több, a kecskeméti Mercedes beruházásokhoz kapcsolódó
-            kerítés telepítési projekt.
+            <StructuredText data={content} />
           </Typography>
           <Stack
             alignItems="left"

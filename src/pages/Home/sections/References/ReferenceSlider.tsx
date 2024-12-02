@@ -12,7 +12,6 @@ interface ReferenceSliderProps {
   referenceCards: ReferenceCardType[];
 }
 const ReferenceSlider = ({ referenceCards }: ReferenceSliderProps) => {
-  // console.log({ referenceCards });
   const isMobile = useMobile();
   const cardWidth = isMobile ? 270 : 720;
   const cardsDesktop = referenceCards.map((reference, index) => (
@@ -22,20 +21,18 @@ const ReferenceSlider = ({ referenceCards }: ReferenceSliderProps) => {
       cardWidth={cardWidth - 20}
     />
   ));
-  const length = cardsDesktop.length;
-  console.log({ length });
   const cardsMobile: JSX.Element[] = [];
   referenceCards.forEach((reference) => {
     cardsMobile.push(<SingleReferenceCard reference={reference} />);
     cardsMobile.push(<SingleReferenceCard details reference={reference} />);
   });
   const cards = isMobile ? cardsMobile : cardsDesktop;
+  const length = cards.length;
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const nextCardIndex =
     currentCardIndex < cards.length - 1 ? currentCardIndex + 1 : 0;
   const prevCardIndex =
     currentCardIndex > 0 ? currentCardIndex - 1 : cards.length - 1;
-  console.log("kivül", { currentCardIndex, nextCardIndex, prevCardIndex });
 
   const currentCards = [
     cards[prevCardIndex],
@@ -53,12 +50,10 @@ const ReferenceSlider = ({ referenceCards }: ReferenceSliderProps) => {
     setPosition(
       direction === "next" ? position - cardWidth : position + cardWidth
     );
-    console.log("belul", { currentCardIndex, nextCardIndex, prevCardIndex });
     setTimeout(() => {
       setTransition("");
       setPosition(-cardWidth);
       setCurrentCardIndex((prev) => {
-        console.log({ prev }, { length });
         const nextCardIndex = prev < length - 1 ? prev + 1 : 0;
         const prevCardIndex = prev > 0 ? prev - 1 : length - 1;
         const newIndex = direction === "next" ? nextCardIndex : prevCardIndex;
