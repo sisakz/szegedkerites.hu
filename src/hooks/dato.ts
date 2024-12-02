@@ -97,17 +97,18 @@ export const useReferenceCards = () => {
   `);
 
   const referenceCards = useMemo(() => {
-    if (!data) return [];
-    const allReferences: ReferenceCardType[] = data.allReferences || [];
-    return allReferences
-      .filter((referenceCard) => referenceCard.image !== null)
-      .map((referenceCard) => ({
-        name: referenceCard.title,
-        image: referenceCard.image?.url,
-        date: new Date(referenceCard.date).getFullYear().toString(),
-        brand: referenceCard.brand?.name,
-        fenceType: referenceCard.fenceType,
-      }));
+    const allReferences: ReferenceCardType[] = data?.allReferences;
+    const referenceCardsRaw =
+      allReferences?.filter(
+        (referenceCard) => !(referenceCard.image === null)
+      ) || [];
+    return referenceCardsRaw.map((referenceCard) => ({
+      name: referenceCard.title,
+      image: referenceCard.image?.url,
+      date: new Date(referenceCard.date).getFullYear().toString(),
+      brand: referenceCard.brand?.name,
+      fenceType: referenceCard.fenceType,
+    }));
   }, [data]);
   console.log("rendering");
   return {
