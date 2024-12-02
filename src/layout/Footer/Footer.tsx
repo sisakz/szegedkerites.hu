@@ -1,6 +1,10 @@
-import { Box, Container, Stack } from "@mui/material";
+import { useStaticContents } from "@/hooks/dato";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import { StructuredText } from "react-datocms";
 
 const Footer = () => {
+  const { content: footer } = useStaticContents("footer");
+  const { title, content } = footer;
   return (
     <footer>
       <Box
@@ -16,7 +20,14 @@ const Footer = () => {
             sx={{ minHeight: "100px" }}
             mt={-4}
           >
-            <Box>© 2024 Szabókert Kft.</Box>
+            <Box textAlign="center" sx={{ my: 4 }}>
+              <Typography variant="body2" fontWeight={600} sx={{ mb: 2 }}>
+                {title}
+              </Typography>
+              <Typography variant="body2">
+                <StructuredText data={content} />
+              </Typography>
+            </Box>
           </Stack>
         </Container>
       </Box>

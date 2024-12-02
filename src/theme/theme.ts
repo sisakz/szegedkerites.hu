@@ -24,6 +24,12 @@ declare module "@mui/material/AppBar" {
   }
 }
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    custom: true;
+  }
+}
+
 export const theme = createTheme({
   palette: {
     primary: { main: "#0f4432", light: "#1f906a", contrastText: "#fff" },
@@ -36,7 +42,12 @@ export const theme = createTheme({
       light: "#5A6268",
       dark: "#1C1F22",
     },
-    light: { main: "#ebebeb" },
+    light: {
+      main: "#ebebeb",
+      dark: "#f5f5f5",
+      light: "#f9f9f9",
+      contrastText: "#000",
+    },
   },
   typography: {
     fontFamily: [

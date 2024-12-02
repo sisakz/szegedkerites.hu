@@ -1,9 +1,10 @@
 import Section from "@/components/Section";
 import SectionTitle from "@/components/SectionTitle";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import ProductTypeCard from "./ProductCard";
 import { useStaticContents } from "@/hooks/dato";
 import { StructuredText } from "react-datocms";
+import CustomButton from "@/components/CustomButton";
 
 const Products = () => {
   const { content: productsSection } = useStaticContents("products-section");
@@ -56,6 +57,15 @@ const Products = () => {
         tapasztalt kollegáink segítenek önnek kiválasztani a projektjéhez és
         igényeihez illeszkedő megoldást.
       </Typography>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <CustomButton
+          to="/#ajanlat"
+          backgroundColor="primaryContrastText"
+          color="light"
+        >
+          Kapcsolat
+        </CustomButton>
+      </Box>
     </Section>
   );
 };
