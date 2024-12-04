@@ -15,7 +15,7 @@ const RECATCHA_SITE_KEY = "6LdeEpEqAAAAAMNkt9S5clERg5zTeoUGFAsLrPJn";
 const CONTACT_FORM_ENDPOINT =
   "https://contact-form.tetragon.hu/contact-form";
 const CONTACT_FORM_JWT =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzemVnZWRrZXJpdGVzLmh1IiwiaWF0IjoxNTE2MjM5MDIyfQ.5tKdfTxWHMgWtPcpV4xs0pL1WZEqcXZDHmbYWd5lXB8";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzemVnZWRrZXJpdGVzLmh1In0.BbBbWvPQZap9wSHbTLJNL2hFfyFu6shacdEhvR6p64s";
 
 const Offer = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
