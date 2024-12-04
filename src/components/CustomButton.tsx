@@ -26,12 +26,14 @@ interface CustomButtonProps {
     | "inherit"
     | "light"
     | undefined;
+  type?: "submit" | "button" | "reset";
 }
 const CustomButton = ({
   children,
   outlined,
   to,
   color = "primary",
+  type,
 }: CustomButtonProps) => {
   const CustomButton_ = (
     <Button
@@ -44,6 +46,7 @@ const CustomButton = ({
         maxWidth: "200px",
         minWidth: "150px",
       }}
+      type={type}
     >
       {children}
     </Button>
