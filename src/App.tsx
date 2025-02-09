@@ -10,8 +10,19 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { HelmetProvider } from "react-helmet-async";
 import Meta from "./components/Meta";
+import ReactGA from "react-ga4";
+import { useEffect } from "react";
+const TRACKING_ID = "G-BGJVG7H0DW";
 
 function App() {
+  useEffect(() => {
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/landingpage",
+      title: "Landing Page",
+    });
+  }, []);
   return (
     <HelmetProvider>
       <div className="app">
