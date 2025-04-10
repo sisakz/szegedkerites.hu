@@ -1,30 +1,72 @@
-# React + TypeScript + Vite
+# SzegedKerítés
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## DatoCMS
 
-Currently, two official plugins are available:
+- url: [https://szegedkerites.admin.datocms.com](https://szegedkerites.admin.datocms.com/)
+- username: szegedkerites@fork.hu
+- password: !!Szegedkerites@2025!!
+- project owner: admin@fork.hu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Email
 
-## Expanding the ESLint configuration
+### Admin and Settings (Forpsi)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Az SMTP, POP3, IMAP email protokollok és a WEBMAIL adatai:
+Az adminisztrátor jogosultsággal rendelkező email fiókot automatikusan létrehozza rendszerünk. Ezt a fiókot az összes többi fiók kezelésére lehet használni.
 
-- Configure the top-level `parserOptions` property like this:
+Kezelés:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Az email kezelő rendszer több felületből áll.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+A kezelő felületet továbbítás, automatikus válaszok
+és alias címek beállítására használhatja:
+
+Szerver (host): http://webmail.forpsi.com
+Felhasználónév: postmaster@szegedkerites.hu
+Domain: szegedkerites.hu
+Jelszó: e4DBxaWvtbAn9a!
+
+Hozzáférés az e-mailekhez:
+
+1. POP3
+
+Szerver (host): pop3.forpsi.com
+Felhasználónév: postmaster@szegedkerites.hu
+Jelszó: e4DBxaWvtbAn9a!
+
+2. IMAP:
+
+Szerver (host): imap.forpsi.com
+Felhasználónév: postmaster@szegedkerites.hu
+Jelszó: e4DBxaWvtbAn9a!
+
+3. WebMail:
+
+Szerver (host): http://webmail.forpsi.com
+Felhasználónév: postmaster@szegedkerites.hu
+Jelszó: dTC-wwD75D
+
+E-mail kliens beállítások:
+
+POP3 szerver: pop3.forpsi.com
+IMAP szerver: imap.forpsi.com
+SMTP szerver: smtp.forpsi.com (az e-mail kliens beállításainál ki kell választania, hogy a kiszolgáló hitelesítést igényel, és ugyanazokat a beállításokat kell használnia, mint a bejövő levelek kiszolgálójánál)
+
+Ha a domain a mi névszervereinket használja, a levelek kézbesíthetőségének javítása érdekében egy SPF rekord kerül beállításra a domainhez.
+
+### Other email
+
+- info@szegedkerites.hu
+- password: e4DBxaWvtbAn9a!
+- Incoming mail (IMAP):
+
+  - imap.forpsi.com
+  - Username: info@szegedkerites.hu
+  - Password:
+  - Use SSL: Enabled
+  - Server port: 993
+
+- Outgoing mail (SMTP):
+  - smtp.forpsi.com
+  - Use SSL: Enabled
+  - Server port: 465
