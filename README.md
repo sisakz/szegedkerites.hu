@@ -7,9 +7,15 @@
 - password: !!Szegedkerites@2025!!
 - project owner: admin@fork.hu
 
-## Email
+## Contact Form Service
 
-### Admin and Settings (Forpsi)
+Repo: [https://github.com/tetragon-hu/contact-form](https://github.com/tetragon-hu/contact-form)
+Cloud Build: [https://console.cloud.google.com/cloud-build/builds;region=global?query=trigger_id%3D%22faaca716-72d3-493b-a2eb-cf17860b732a%22&invt=AbuZ3Q&project=tetragon-hu](https://console.cloud.google.com/cloud-build/builds;region=global?query=trigger_id%3D%22faaca716-72d3-493b-a2eb-cf17860b732a%22&invt=AbuZ3Q&project=tetragon-hu)
+Cloud Run: [https://console.cloud.google.com/run/detail/europe-west4/contact-form/triggers?invt=AbuZ2Q&project=tetragon-hu](https://console.cloud.google.com/run/detail/europe-west4/contact-form/triggers?invt=AbuZ2Q&project=tetragon-hu)
+
+## Email (Forpsi)
+
+### Postmaster
 
 Az SMTP, POP3, IMAP email protokollok és a WEBMAIL adatai:
 Az adminisztrátor jogosultsággal rendelkező email fiókot automatikusan létrehozza rendszerünk. Ezt a fiókot az összes többi fiók kezelésére lehet használni.
