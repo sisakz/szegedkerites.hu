@@ -27,18 +27,21 @@ interface CustomButtonProps {
     | "light"
     | undefined;
   type?: "submit" | "button" | "reset";
+  disabled?: boolean;
 }
 const CustomButton = ({
   children,
   outlined,
   to,
   color = "primary",
+  disabled = false,
   type,
 }: CustomButtonProps) => {
   const CustomButton_ = (
     <Button
       variant={outlined ? "outlined" : "contained"}
       color={color as ColorType}
+      disabled={disabled}
       sx={{
         py: "10px",
         px: "15px",
