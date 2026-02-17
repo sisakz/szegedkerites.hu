@@ -2,8 +2,12 @@ import Section from "@/components/Section";
 import { Stack, Typography } from "@mui/material";
 import HeroContainer from "./HeroContainer";
 import CustomButton from "@/components/CustomButton";
+import { useStaticContents } from "@/hooks/dato";
+import { StructuredText } from "react-datocms";
 
 const Hero = () => {
+  const { content: newAddress } = useStaticContents("newAddress");
+  const { content } = newAddress;
   return (
     <Section background="light">
       <HeroContainer>
@@ -22,6 +26,9 @@ const Hero = () => {
           <CustomButton to="/#ajanlat">Ajánlatot kérek</CustomButton>
           <CustomButton outlined>Bővebben</CustomButton>
         </Stack>
+        <Typography variant="h3" sx={{ width: "100%", fontWeight: 400 }}>
+          <StructuredText data={content} />
+        </Typography>
       </HeroContainer>
     </Section>
   );
